@@ -46,6 +46,35 @@ for _, lsp in ipairs(servers) do
     -- on_attach = my_custom_on_attach,
     capabilities = capabilities,
   }
+
+--protocol.SymbolKind = { }
+  vim.lsp.protocol.CompletionItemKind = {
+    '', -- Text
+    '', -- Method
+    '', -- Function
+    '', -- Constructor
+    '', -- Field
+    '', -- Variable
+    '', -- Class
+    'ﰮ', -- Interface
+    '', -- Module
+    '', -- Property
+    '', -- Unit
+    '', -- Value
+    '', -- Enum
+    '', -- Keyword
+    '﬌', -- Snippet
+    '', -- Color
+    '', -- File
+    '', -- Reference
+    '', -- Folder
+    '', -- EnumMember
+    '', -- Constant
+    '', -- Struct
+    '', -- Event
+    'ﬦ', -- Operator
+    '', -- TypeParameter
+  }
 end
 
 nvim_lsp.diagnosticls.setup {

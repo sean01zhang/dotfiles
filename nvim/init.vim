@@ -1,47 +1,75 @@
-" Options
+" Settings
 set nocompatible " disabled old-time vi
 set showmatch
 set ignorecase
 set hlsearch " highlight search results
-set expandtab " turns tabs into spaces
-set tabstop=2 " no of cols occupied by tab char
-set softtabstop=2
-set shiftwidth=2
 set clipboard=unnamedplus " Enables the clipboard between Vim/Neovim and other applications.
 set completeopt=noinsert,menuone,noselect " Modifies the auto-complete menu to behave more like an IDE.
 set cursorline " Highlights the current line in the editor
-set hidden " Hide unused buffers
-set autoindent " Indent a new line
 set inccommand=split " Show replacements in a split screen
 set mouse=a " Allow to use the mouse in the editor
-set number " Shows the line numbers
 set splitbelow splitright " Change the split screen behavior
-set title " Show file title
+" set title " Show file title
 set wildmenu " Show a more advance menu
-set cc=80 " Show at 80 column a border for good code style
+
 filetype plugin indent on   " Allow auto-indenting depending on file type
-syntax on
-set spell " enable spell check (may need to download language package)
+
 set ttyfast " Speed up scrolling in Vim
+
+" always show status
+set laststatus=2
+
+" editing things
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set cc=80 " 80 col line
+set tw=79
+set autoindent
+set smartindent
+
+" line numbering
+set number
 
 runtime ./plug.vim
 runtime./maps.vim
 
+" true color
+if exists("&termguicolors")
+  syntax on
+  set termguicolors
+  " GRUVBOX THEME
+  let g:gruvbox_contrast_dark='hard'
+  colorscheme gruvbox
+endif
 
-" ----------------------------------------------------------------------------
-" -- NERDTREE
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader>t :NERDTreeToggle<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-" start nerdtree always
-autocmd VimEnter * NERDTree | wincmd p
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+let g:airline#extensions#tabline#enabled = 1 " tab bar
+set noshowmode " get rid of default mode indicator (eg. -- INSERT -- )
+let g:airline_powerline_fonts = 1
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" -- THEME
-colorscheme monokai_ristretto
+lua << EOF
+
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
+
+EOF
+
+lua << EOF
+
+require 'colorizer'.setup()
+
+EOF

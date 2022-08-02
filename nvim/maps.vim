@@ -39,3 +39,7 @@ vnoremap <S-Tab> <<<Esc>gv
 " SET config
 nnoremap set :e $MYVIMRC<CR>
 
+" shift buffers FAST
+nnoremap <silent>]b :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap <silent>[b :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+

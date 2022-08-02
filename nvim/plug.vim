@@ -11,10 +11,14 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'ryanoasis/vim-devicons'
-Plug 'yggdroot/indentline'
+" Plug 'yggdroot/indentline'
 " Plug 'kien/rainbow_parentheses.vim'
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
+"
+"
+" FuzzySearch
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -33,11 +37,12 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 
 " theme
-" Plug 'arcticicestudio/nord-vim'
-Plug 'tanvirtin/monokai.nvim'
-Plug 'itchyny/lightline.vim'
-
-" preview for markdown
-" Plug 'kannokanno/previm'
+Plug 'morhetz/gruvbox'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'norcalli/nvim-colorizer.lua' " coloring codes
 
 call plug#end()
