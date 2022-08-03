@@ -48,28 +48,12 @@ let g:airline#extensions#tabline#enabled = 1 " tab bar
 set noshowmode " get rid of default mode indicator (eg. -- INSERT -- )
 let g:airline_powerline_fonts = 1
 
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-lua << EOF
-
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "eol:↴"
-
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-}
-
-EOF
 
 lua << EOF
 
 require 'colorizer'.setup()
+require 'nvim-web-devicons'.setup()
+require 'scrollbar'.setup()
 
 EOF
+

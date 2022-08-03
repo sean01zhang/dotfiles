@@ -8,21 +8,15 @@ call plug#begin('~/.config/nvim/plugged')
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
 " Make sure you use single quotes
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
 
-" Plug 'yggdroot/indentline'
 " Plug 'kien/rainbow_parentheses.vim'
-" Plug 'ap/vim-css-color'
-"
-"
+
 " FuzzySearch
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 
 " language support
@@ -36,13 +30,26 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 
+" Tree File Browser
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+
 " theme
 Plug 'morhetz/gruvbox'
+
+" BufferBar and Bottom Bar
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+
+" Text Editing Quality of Life
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'norcalli/nvim-colorizer.lua' " coloring codes
+" ----? maybe some auto pair brackets
+Plug 'preservim/nerdcommenter'
+
+" Scrollbar
+Plug 'petertriho/nvim-scrollbar'
 
 call plug#end()
