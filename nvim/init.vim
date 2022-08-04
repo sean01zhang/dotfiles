@@ -48,6 +48,8 @@ let g:airline#extensions#tabline#enabled = 1 " tab bar
 set noshowmode " get rid of default mode indicator (eg. -- INSERT -- )
 let g:airline_powerline_fonts = 1
 
+let g:airline#extensions#coc#enabled = 1
+
 
 lua << EOF
 

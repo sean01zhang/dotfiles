@@ -43,6 +43,10 @@ nnoremap set :e $MYVIMRC<CR>
 nnoremap <silent>]b :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap <silent>[b :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
+" Vertical and horizontal splitting
+nnoremap vs :vs<CR>
+nnoremap sp :sp<CR>
+
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
