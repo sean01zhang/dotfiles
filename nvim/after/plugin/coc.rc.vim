@@ -114,8 +114,5 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 
-
-
-
 " Semantic Highlight,
 let g:coc_default_semantic_highlight_groups = 1

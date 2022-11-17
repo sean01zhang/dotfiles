@@ -35,20 +35,27 @@ set number
 runtime ./plug.vim
 runtime./maps.vim
 
+let g:sonokai_style = 'andromeda'
+let g:sonokai_better_performance = 1
+let g:sonokai_transparent_background = 2
+
 " true color
 if exists("&termguicolors")
   syntax on
   set termguicolors
   " GRUVBOX THEME
-  let g:gruvbox_contrast_dark='hard'
-  colorscheme gruvbox
+  " let g:gruvbox_contrast_dark='hard' 
+  colorscheme sonokai
 endif
 
 let g:airline#extensions#tabline#enabled = 1 " tab bar
 set noshowmode " get rid of default mode indicator (eg. -- INSERT -- )
 let g:airline_powerline_fonts = 1
-
 let g:airline#extensions#coc#enabled = 1
+
+" Vim LAtex live preview
+autocmd Filetype tex setl updatetime=1000
+let g:livepreview_previewer = 'open -a Skim'
 
 
 lua << EOF
@@ -56,6 +63,9 @@ lua << EOF
 require 'colorizer'.setup()
 require 'nvim-web-devicons'.setup()
 require 'scrollbar'.setup()
+require 'presence':setup({
+  auto_update = true,
+})
 
 EOF
 

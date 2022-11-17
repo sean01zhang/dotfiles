@@ -19,10 +19,13 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" LaTeX
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 " language support
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " AUTOCOMPLETE
@@ -37,6 +40,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " theme
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/sonokai'
 
 " BufferBar and Bottom Bar
 " Plug 'itchyny/lightline.vim'
@@ -52,5 +56,8 @@ Plug 'preservim/nerdcommenter'
 
 " Scrollbar
 Plug 'petertriho/nvim-scrollbar'
+
+" Discord Rich Presence
+Plug 'andweeb/presence.nvim'
 
 call plug#end()
