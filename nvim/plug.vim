@@ -9,8 +9,6 @@ call plug#begin('~/.config/nvim/plugged')
 "   - Avoid using standard Vim directory names like 'plugin'
 " Make sure you use single quotes
 
-" Plug 'kien/rainbow_parentheses.vim'
-
 " FuzzySearch
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }

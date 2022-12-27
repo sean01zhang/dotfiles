@@ -36,6 +36,9 @@ nnoremap <S-Tab> <<
 vnoremap <Tab>   >><Esc>gv
 vnoremap <S-Tab> <<<Esc>gv
 
+" Terminal Keybind for exiting terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " SET config
 nnoremap set :e $MYVIMRC<CR>
 
