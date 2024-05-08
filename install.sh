@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "Adding Dotfiles"
-ln -s nvim .config/nvim
-ln -s tmux .config/tmux
+mkdir -p ~/.config
+ln -s "$(pwd)/nvim" ~/.config/nvim
+ln -s "$(pwd)/tmux" ~/.config/tmux
 
 echo "Compiling Programs..."
 mkdir -p ~/compiled_programs
@@ -17,8 +18,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git
 cd fzf
 git fetch --tags
 git checkout tags/0.51.0
-sh install
-fzf --fish | source
+sh ./install
 cd ..
 
 # install nvim
