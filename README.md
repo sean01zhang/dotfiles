@@ -9,6 +9,7 @@ My dots contain:
 - Tmux configuration
 - Hyprland configuration
 - Waybar configuration
+- Kitty configuration
 
 ## Installation
 
