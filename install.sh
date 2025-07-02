@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 os=$(uname -s)
 echo "Detected OS: $os"
 
