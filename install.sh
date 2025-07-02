@@ -1,6 +1,14 @@
 #!/bin/bash
 
-echo "Adding Dotfiles"
-mkdir -p ~/.config
-ln -s "$(pwd)/nvim" ~/.config/nvim
-ln -s "$(pwd)/tmux" ~/.config/tmux
+
+os=$(uname -s)
+echo "Detected OS: $os"
+
+if [[ "$os" == "Linux" ]]; then
+	echo "Running Linux-specific setup..."
+	stow -t "$HOME" -R --verbose=2 linux
+elif [[ "$os" == "Darwin" ]]; then
+	echo "No macOS specific setup required."
+fi
+
+stow -t "$HOME" -R --verbose=2 all
