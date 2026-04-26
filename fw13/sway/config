@@ -1,0 +1,58 @@
+# Sean's config for Sway.
+
+# ====================
+# Variables
+# ====================
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Preferred terminal emulator.
+set $term foot
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $rofi_cmd pgrep -x rofi && pkill -x rofi || rofi \
+        -terminal '$term'
+# Shows a combined list of the applications with desktop files and
+# executables from PATH.
+# TODO: add window with the next release of rofi-wayland
+set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi 
+
+set $tabmenu $rofi_cmd -show window
+
+# Style of windows
+gaps inner 5px
+gaps outer 2px
+
+
+# ====================
+# Misc Keybinds
+# ====================
+
+# Start a terminal.
+bindsym $mod+t exec $term
+
+# Start launcher.
+bindsym $mod+Space exec $menu
+
+# Start window switcher.
+bindsym $mod+Tab exec $tabmenu
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+
+# ====================
+# Imports
+# ====================
+
+include ./windows.conf
+include ./input.conf
+
+# Get fedora sway config
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'

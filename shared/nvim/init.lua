@@ -195,9 +195,6 @@ require("lazy").setup({
 		},
 	},
 	{
-		"github/copilot.vim",
-	},
-	{
 		"psliwka/vim-smoothie",
 	},
 

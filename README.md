@@ -14,8 +14,5 @@ My dots contain:
 ## Installation
 
 ```bash
-stow -t $HOME all
-
-# If using linux
-stow -t $HOME linux
+stow -v -t ~/.config <folder>
 ```
